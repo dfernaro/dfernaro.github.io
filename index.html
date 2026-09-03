@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Fernández Rodríguez — Technical Lead, Cloud Architecture &amp; Responsible AI</title>
+<meta name="description" content="Technical Lead with 10+ years across cloud architecture, team leadership, and applied AI. 23 AWS credentials, 9 full certifications, 55 credentials overall.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f6f3;
+    --panel:#ffffff;
+    --ink:#14202b;
+    --text:#2b3640;
+    --muted:#5c6870;
+    --accent:#0f5257;
+    --accent-2:#3d7a7e;
+    --accent-3:#7bacae;
+    --accent-4:#c3dcda;
+    --line:#e1ded4;
+    --content-max:660px;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation:none !important; transition:none !important; }
+  }
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size:16.5px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family:'Newsreader', Georgia, serif; color:var(--ink); margin:0; line-height:1.2; font-weight:500; }
+  a{ color:var(--ink); text-decoration-color:var(--line); text-underline-offset:3px; }
+  a:hover{ color:var(--accent); text-decoration-color:var(--accent); }
+  a:focus-visible, summary:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+  .skip-link{
+    position:absolute; left:12px; top:-48px;
+    background:var(--ink); color:#fff;
+    padding:10px 16px; font-size:14px; font-weight:600;
+    z-index:100; transition:top 0.15s ease; text-decoration:none;
+  }
+  .skip-link:focus{ top:12px; }
+  body.drawer-open{ overflow:hidden; }
+
+  /* -------- layout -------- */
+  .layout{ display:grid; grid-template-columns:240px 1fr; min-height:100vh; }
+  .content-col{ min-width:0; }
+  .content-wrap{ max-width:var(--content-max); margin:0 auto; padding:0 28px; }
+
+  /* -------- sidebar (desktop) -------- */
+  .sidebar{
+    border-right:1px solid var(--line);
+    padding:36px 24px; position:sticky; top:0; height:100vh;
+    display:flex; flex-direction:column;
+  }
+  .sidebar .mark{ font-family:'Newsreader', serif; font-style:italic; font-size:19px; color:var(--ink); text-decoration:none; }
+  .sidebar .role-line{ font-size:12.5px; color:var(--muted); margin-top:6px; line-height:1.5; }
+  .sidebar nav{ margin-top:40px; flex:1; }
+  .sidebar nav ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:4px; }
+  .sidebar nav a{
+    display:block; font-size:14px; color:var(--muted); text-decoration:none;
+    padding:7px 0 7px 14px; border-left:2px solid transparent;
+  }
+  .sidebar nav a:hover{ color:var(--ink); }
+  .sidebar nav a[aria-current="true"]{ color:var(--accent); border-left-color:var(--accent); font-weight:600; }
+  .sidebar .cta{
+    margin-top:auto; padding-top:20px; border-top:1px solid var(--line);
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .sidebar .cta a{ font-size:13.5px; font-weight:600; color:var(--accent); }
+  .sidebar .cta a:hover{ color:var(--ink); }
+
+  /* -------- mobile: topbar + slide-in drawer -------- */
+  .mobile-topbar{ display:none; }
+  .menu-toggle{
+    background:none; border:1px solid var(--line); border-radius:5px;
+    width:38px; height:38px; flex-shrink:0; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; color:var(--ink);
+  }
+  .menu-toggle:hover{ border-color:var(--accent); color:var(--accent); }
+  .menu-toggle svg{ width:19px; height:19px; }
+
+  .drawer-backdrop{
+    position:fixed; inset:0; background:rgba(20,32,43,0.42);
+    z-index:35; opacity:0; pointer-events:none; transition:opacity 0.2s ease;
+  }
+  .drawer-backdrop.open{ opacity:1; pointer-events:auto; }
+
+  .mobile-drawer{
+    position:fixed; top:0; left:0; bottom:0; width:min(82vw, 300px);
+    background:var(--bg); z-index:40; border-right:1px solid var(--line);
+    padding:22px 24px 26px; display:flex; flex-direction:column; overflow-y:auto;
+    transform:translateX(-100%); transition:transform 0.25s ease;
+  }
+  .mobile-drawer.open{ transform:translateX(0); }
+  .mobile-drawer .drawer-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+  .mobile-drawer .mark{ font-family:'Newsreader', serif; font-style:italic; font-size:17px; color:var(--ink); text-decoration:none; }
+  .mobile-drawer .drawer-close{
+    background:none; border:none; font-size:22px; line-height:1; color:var(--muted);
+    cursor:pointer; padding:4px; margin:-4px -4px 0 0;
+  }
+  .mobile-drawer .drawer-close:hover{ color:var(--accent); }
+  .mobile-drawer .role-line{ font-size:12px; color:var(--muted); margin-top:6px; line-height:1.5; }
+  .mobile-drawer nav{ margin-top:28px; }
+  .mobile-drawer nav ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px; }
+  .mobile-drawer nav a{
+    display:block; font-size:15.5px; color:var(--text); text-decoration:none;
+    padding:10px 0 10px 14px; border-left:2px solid transparent;
+  }
+  .mobile-drawer nav a[aria-current="true"]{ color:var(--accent); border-left-color:var(--accent); font-weight:600; }
+  .mobile-drawer .cta{
+    margin-top:auto; padding-top:20px; border-top:1px solid var(--line);
+    display:flex; flex-direction:column; gap:9px;
+  }
+  .mobile-drawer .cta a{ font-size:14px; font-weight:600; color:var(--accent); }
+
+  @media (max-width:900px){
+    .layout{ grid-template-columns:1fr; }
+    .sidebar{ display:none; }
+    .mobile-topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      position:sticky; top:0; z-index:20; height:56px; padding:0 20px;
+      background:rgba(247,246,243,0.94); backdrop-filter:blur(6px);
+      border-bottom:1px solid var(--line);
+    }
+    .mobile-topbar .brand{ font-family:'Newsreader', serif; font-style:italic; font-size:16px; color:var(--ink); text-decoration:none; }
+  }
+
+  section{ padding:56px 0; border-top:1px solid var(--line); }
+  section[id]{ scroll-margin-top:24px; }
+  section:first-of-type{ border-top:none; padding-top:64px; }
+
+  /* -------- hero -------- */
+  .kicker{ font-size:14px; color:var(--accent); font-weight:600; }
+  .hero h1{ font-size:38px; margin-top:12px; letter-spacing:-0.01em; }
+  .location{ font-size:14.5px; color:var(--muted); margin-top:10px; }
+  .hero p.lede{ margin-top:20px; font-size:16px; max-width:58ch; }
+  .hero p.lede + p.lede{ margin-top:12px; }
+  .pull-quote{
+    font-family:'Newsreader', serif; font-style:italic; font-weight:500;
+    font-size:19px; color:var(--ink); line-height:1.45;
+    border-left:3px solid var(--accent); padding-left:18px;
+    margin:24px 0 4px; max-width:56ch;
+    background:none; quotes:none;
+  }
+
+  .credential-viz{ display:flex; align-items:center; gap:28px; margin-top:40px; flex-wrap:wrap; }
+  .donut-figure{ flex-shrink:0; }
+  .donut-figure svg{ display:block; }
+  .legend{ display:flex; flex-direction:column; gap:9px; font-size:14px; }
+  .legend .row{ display:flex; align-items:center; gap:10px; }
+  .legend .swatch{ width:10px; height:10px; border-radius:2px; flex-shrink:0; }
+  .legend .n{ font-weight:700; color:var(--ink); margin-right:4px; }
+
+  .stat-row{ display:flex; gap:32px; margin-top:36px; flex-wrap:wrap; }
+  .stat-row .stat .num{ font-family:'Newsreader', serif; font-size:30px; color:var(--ink); }
+  .stat-row .stat .label{ font-size:12.5px; color:var(--muted); margin-top:2px; }
+
+  /* -------- section heads -------- */
+  .section-head{ border-left:3px solid var(--accent); padding-left:16px; margin-bottom:32px; }
+  .section-head h2{ font-size:25px; }
+  .section-sub{ color:var(--muted); font-size:14px; margin-top:8px; }
+
+  /* -------- experience -------- */
+  .role{ padding:24px 0; border-top:1px solid var(--line); }
+  .role:first-of-type{ border-top:none; padding-top:0; }
+  .role .when{ font-size:13px; color:var(--accent); font-weight:600; }
+  .role h3{ font-size:18px; margin-top:6px; font-weight:500; }
+  .role .org{ font-size:13.5px; color:var(--muted); margin-top:3px; }
+  .role ul{ margin:14px 0 0; padding-left:18px; }
+  .role li{ margin-bottom:7px; }
+  .role li:last-child{ margin-bottom:0; }
+  .role .note{ margin-top:12px; font-size:13.5px; color:var(--muted); }
+
+  /* -------- skills -------- */
+  .skills-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:28px 36px; }
+  .skill-group h3{ font-size:15.5px; font-style:italic; font-weight:500; padding-bottom:9px; border-bottom:1px solid var(--line); margin-bottom:11px; }
+  .skill-group ul{ margin:0; padding:0; list-style:none; }
+  .skill-group li{ padding:4px 0; font-size:14.5px; }
+
+  /* -------- work with me -------- */
+  .work-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:28px 36px; }
+  .work-card h3{ font-size:16.5px; font-style:italic; font-weight:500; padding-bottom:9px; border-bottom:1px solid var(--line); margin-bottom:11px; }
+  .work-card p{ font-size:14.5px; margin:0 0 12px; }
+  .work-card a{ font-size:14px; font-weight:600; color:var(--accent); }
+  .work-card a:hover{ color:var(--ink); }
+
+  /* -------- certifications (collapsible) -------- */
+  .cert-block{ border-top:1px solid var(--line); }
+  .cert-block:last-child{ border-bottom:1px solid var(--line); }
+  .cert-block summary{
+    padding:14px 0; font-family:'Newsreader', serif; font-style:italic; font-weight:500;
+    font-size:16.5px; color:var(--ink); cursor:pointer; list-style:none;
+    display:flex; align-items:center; gap:10px;
+  }
+  .cert-block summary::-webkit-details-marker{ display:none; }
+  .cert-block summary::before{ content:"+"; color:var(--accent); font-family:'Manrope',sans-serif; font-style:normal; font-weight:700; width:14px; }
+  .cert-block[open] summary::before{ content:"–"; }
+  .cert-block .count{ color:var(--accent); font-style:normal; font-weight:600; }
+  .cert-index{ display:grid; grid-template-columns:repeat(2, 1fr); column-gap:28px; row-gap:8px; font-size:14px; margin:2px 0 18px 24px; }
+  .cert-index div{ padding:2px 0; color:var(--text); }
+  .cert-index div::before{ content:"–"; color:var(--accent-3); margin-right:8px; }
+
+  /* -------- speaking -------- */
+  .talk-body{ display:grid; grid-template-columns:1fr 340px; gap:28px; align-items:start; }
+  .talk h3{ font-size:18px; font-weight:500; }
+  .talk .meta{ font-size:13px; color:var(--muted); margin-top:5px; }
+  .talk p{ margin-top:10px; }
+  .talk-photos{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .talk-photo{ aspect-ratio:4/3; overflow:hidden; background:var(--panel); border:1px solid var(--line); }
+  .talk-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .distinctions{ margin-top:26px; padding-top:26px; border-top:1px solid var(--line); }
+  .distinctions h3{ font-size:16.5px; font-weight:500; }
+  .distinctions .meta{ font-size:13px; color:var(--muted); margin-top:4px; }
+  .distinctions ul{ padding-left:18px; margin:10px 0 0; }
+  .distinctions li{ margin-bottom:6px; }
+  @media (max-width:640px){ .talk-body{ grid-template-columns:1fr; } }
+
+  /* -------- books -------- */
+  .books-grid{ display:grid; grid-template-columns:repeat(5, 1fr); gap:18px; }
+  .book-cover{ aspect-ratio:2/3; border:1px solid var(--line); background:var(--panel); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .book-cover img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .book-cover .placeholder{ font-size:11px; color:var(--muted); text-align:center; padding:10px; line-height:1.5; }
+  .book-title{ margin-top:9px; font-size:13px; font-weight:600; line-height:1.4; }
+  @media (max-width:600px){ .books-grid{ grid-template-columns:repeat(2, 1fr); } }
+
+  /* -------- writing -------- */
+  .pub{ display:flex; justify-content:space-between; gap:20px; padding:14px 0; border-top:1px solid var(--line); }
+  .pub:first-child{ border-top:none; padding-top:0; }
+  .pub a{ font-size:15px; font-weight:500; }
+  .pub .kind{ font-size:12.5px; color:var(--muted); font-style:italic; font-family:'Newsreader',serif; white-space:nowrap; padding-top:2px; }
+
+  /* -------- education -------- */
+  .edu{ padding:16px 0; border-top:1px solid var(--line); }
+  .edu:first-child{ border-top:none; padding-top:0; }
+  .edu h3{ font-size:16px; font-weight:500; }
+  .edu .org{ font-size:13.5px; color:var(--muted); margin-top:3px; }
+
+  /* -------- footer -------- */
+  footer{ padding:44px 0 64px; border-top:1px solid var(--line); }
+  footer .cols{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; }
+  footer h3{ font-size:12.5px; color:var(--muted); font-weight:600; margin-bottom:9px; }
+  footer .links{ display:flex; flex-direction:column; gap:7px; font-size:14.5px; }
+  footer .langs{ font-size:14px; }
+  footer .copyright{ margin-top:32px; font-size:12.5px; color:var(--muted); }
+
+  @media (max-width:640px){
+    .hero h1{ font-size:30px; }
+    section{ padding:40px 0; }
+    .skills-grid{ grid-template-columns:1fr; }
+    .work-grid{ grid-template-columns:1fr; }
+    .cert-index{ grid-template-columns:1fr; margin-left:20px; }
+    .pub{ flex-direction:column; gap:4px; }
+    .credential-viz{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<div class="layout">
+
+  <aside class="sidebar" aria-label="Section navigation">
+    <a href="#" class="mark">David Fernández Rodríguez</a>
+    <div class="role-line">Technical Lead<br>Cloud Architecture &amp; Responsible AI</div>
+    <nav>
+      <ul>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#speaking">Speaking</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#work-with-me">Work with Me</a></li>
+      </ul>
+    </nav>
+    <div class="cta">
+      <a href="https://www.linkedin.com/in/dfernaro" target="_blank" rel="noopener">Message on LinkedIn →</a>
+      <a href="https://medium.com/@dfernaro" target="_blank" rel="noopener">Read the blog</a>
+    </div>
+  </aside>
+
+  <div class="content-col">
+
+    <div class="mobile-topbar">
+      <a href="#" class="brand">David Fernández Rodríguez</a>
+      <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+    <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Section navigation">
+      <div class="drawer-head">
+        <div>
+          <a href="#" class="mark">David Fernández Rodríguez</a>
+          <div class="role-line">Technical Lead<br>Cloud Architecture &amp; Responsible AI</div>
+        </div>
+        <button type="button" class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+      </div>
+      <nav aria-label="Section navigation">
+        <ul>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#speaking">Speaking</a></li>
+          <li><a href="#books">Books</a></li>
+          <li><a href="#writing">Writing</a></li>
+          <li><a href="#education">Education</a></li>
+        <li><a href="#work-with-me">Work with Me</a></li>
+        </ul>
+      </nav>
+      <div class="cta">
+        <a href="https://www.linkedin.com/in/dfernaro" target="_blank" rel="noopener">Message on LinkedIn →</a>
+        <a href="https://medium.com/@dfernaro" target="_blank" rel="noopener">Read the blog</a>
+      </div>
+    </div>
+
+    <main id="main">
+
+      <!-- ============ HERO ============ -->
+      <section class="hero">
+        <div class="content-wrap">
+          <div class="kicker">Technical Lead — Cloud Architecture &amp; Responsible AI</div>
+          <h1>David Fernández Rodríguez</h1>
+          <div class="location">Seville, Spain — teams built across Spain, Ireland, Germany, Denmark and the US</div>
+
+          <p class="pull-quote">"The best technical decisions are usually the boring ones: clear ownership, solid documentation, and knowing when not to over-engineer."</p>
+
+          <p class="lede">Ten years across cloud architecture, team leadership and, more recently, applied AI. At Plexus Tech I lead several projects at once, managing teams of 12 to 20 engineers and architects — including a team based in Mexico — and run the company's AWS Partnership strategy.</p>
+          <p class="lede">Lately I've been pushing responsible AI adoption inside the organization: helping engineers get comfortable with tools like Claude, and delivering production AI systems that go beyond a single use case — from a Retrieval-Augmented Generation platform to image recognition, OCR and sentiment analysis tools.</p>
+
+          <div class="credential-viz">
+            <div class="donut-figure">
+              <svg width="164" height="164" viewBox="0 0 200 200" role="img" aria-label="Donut chart: 55 credentials total, made up of 23 AWS, 9 Anthropic Academy, 8 APIsec University, and 15 from other issuers">
+                <g transform="rotate(-90 100 100)">
+                  <circle cx="100" cy="100" r="70" fill="none" stroke="var(--accent)" stroke-width="26" stroke-dasharray="183.9 439.8" stroke-dashoffset="0"></circle>
+                  <circle cx="100" cy="100" r="70" fill="none" stroke="var(--accent-2)" stroke-width="26" stroke-dasharray="71.96 439.8" stroke-dashoffset="-183.9"></circle>
+                  <circle cx="100" cy="100" r="70" fill="none" stroke="var(--accent-3)" stroke-width="26" stroke-dasharray="63.97 439.8" stroke-dashoffset="-255.86"></circle>
+                  <circle cx="100" cy="100" r="70" fill="none" stroke="var(--accent-4)" stroke-width="26" stroke-dasharray="119.95 439.8" stroke-dashoffset="-319.83"></circle>
+                </g>
+                <text x="100" y="96" text-anchor="middle" font-family="Newsreader, serif" font-size="34" fill="var(--ink)">55</text>
+                <text x="100" y="118" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="var(--muted)">credentials</text>
+              </svg>
+            </div>
+            <div class="legend">
+              <div class="row"><span class="swatch" style="background:var(--accent)"></span><span><span class="n">23</span>AWS (certifications, accreditations &amp; microcredentials)</span></div>
+              <div class="row"><span class="swatch" style="background:var(--accent-2)"></span><span><span class="n">9</span>Anthropic Academy</span></div>
+              <div class="row"><span class="swatch" style="background:var(--accent-3)"></span><span><span class="n">8</span>APIsec University</span></div>
+              <div class="row"><span class="swatch" style="background:var(--accent-4)"></span><span><span class="n">15</span>Microsoft, Google, Neo4j, Databricks, dbt Labs &amp; other issuers</span></div>
+            </div>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat"><div class="num">10+</div><div class="label">Years leading engineering</div></div>
+            <div class="stat"><div class="num">12–20</div><div class="label">Engineers led at once</div></div>
+            <div class="stat"><div class="num">−25%</div><div class="label">Monthly AWS spend cut</div></div>
+            <div class="stat"><div class="num">+30%</div><div class="label">Team productivity lift</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ EXPERIENCE ============ -->
+      <section id="experience">
+        <div class="content-wrap">
+          <div class="section-head"><h2>Experience</h2></div>
+
+          <div class="role">
+            <div class="when">2025 — Present</div>
+            <h3>Technical Lead</h3>
+            <div class="org">Plexus Tech · Remote</div>
+            <ul>
+              <li>Lead delivery for several concurrent technical projects, managing teams of 12–20 developers, architects and other engineers, including a team based in Mexico.</li>
+              <li>Run the AWS Partnership strategy — certifications, lead generation and technical accreditation — while applying to become an AWS Ambassador.</li>
+              <li>Champion responsible AI adoption across the organization and delivered a production Retrieval-Augmented Generation (RAG) system.</li>
+              <li>Cut monthly AWS spend by 25% with no impact on performance, and lifted team productivity by 30% through process and tooling changes.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="when">2024 — 2025</div>
+            <h3>Senior Software Engineer</h3>
+            <div class="org">Complexio · Denmark</div>
+            <ul>
+              <li>Led design and deployment of AI-driven pattern-recognition systems using LLMs and vLLM, automating processing of event-based data across formats.</li>
+              <li>Optimized model performance through prompt engineering and fine-tuning to improve accuracy and reduce latency in production.</li>
+              <li>Built scalable, real-time AI pipelines on Azure with Pulumi for infrastructure-as-code and CI/CD.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="when">2022 — 2024</div>
+            <h3>Technical Lead, Solutions Architect &amp; Senior Software Engineer</h3>
+            <div class="org">Spark · Ireland</div>
+            <ul>
+              <li>Led cross-functional teams delivering a recommendation system, a customer-feedback analysis pipeline, and LLM chatbots built with LangChain and OpenAI.</li>
+              <li>Designed scalable architectures using Domain-Driven Design and clean architecture principles.</li>
+              <li>Set coding standards and mentored the wider engineering team.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="when">2021 — 2022</div>
+            <h3>Software Architect &amp; Senior Software Engineer</h3>
+            <div class="org">1xINTERNET · Germany</div>
+            <ul>
+              <li>Designed and delivered enterprise software for retail, health and pharmaceutical clients.</li>
+              <li>Managed development teams and ran code review and QA processes.</li>
+              <li>Training sessions lifted junior developers' coding efficiency by 25%.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="when">2020 — 2021</div>
+            <h3>Delivery Manager</h3>
+            <div class="org">Sopra Steria · Seville, Spain</div>
+            <ul>
+              <li>Oversaw delivery of multiple concurrent projects, managing risk, scope and stakeholder expectations.</li>
+              <li>Acted as primary liaison between clients and cross-functional delivery teams.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="when">2016 — 2020</div>
+            <h3>Senior Software Engineer &amp; Data Engineer</h3>
+            <div class="org">everis · Seville, Spain</div>
+            <ul>
+              <li>Migrated data from multiple sources into Drupal 8 and built reusable web components and REST APIs.</li>
+              <li>Managed teams of two to five, delivering ETL, Open Data and e-health projects across public and private sector clients.</li>
+            </ul>
+            <div class="note">Earlier: freelance web development and a software engineering internship (2012–2016).</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SKILLS ============ -->
+      <section id="skills">
+        <div class="content-wrap">
+          <div class="section-head"><h2>Skills</h2></div>
+          <div class="skills-grid">
+            <div class="skill-group">
+              <h3>Cloud &amp; Infrastructure</h3>
+              <ul>
+                <li>AWS (Solutions Architect, DevOps, Security, Networking, Data, ML)</li>
+                <li>Microsoft Azure &amp; Google Cloud Platform</li>
+                <li>Terraform, CloudFormation, CDK, Pulumi, Ansible</li>
+                <li>Docker &amp; container orchestration</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h3>AI &amp; Applied ML</h3>
+              <ul>
+                <li>Retrieval-Augmented Generation (RAG)</li>
+                <li>Anthropic Claude &amp; Model Context Protocol</li>
+                <li>LLM fine-tuning &amp; prompt engineering</li>
+                <li>LangChain, vLLM</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h3>Leadership &amp; Delivery</h3>
+              <ul>
+                <li>Managing engineering teams of 12–20</li>
+                <li>Mentoring, 1:1s and talent development</li>
+                <li>Budget and time tracking ownership</li>
+                <li>Pre-sales, client meetings and RFPs</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h3>Engineering</h3>
+              <ul>
+                <li>Java, Python, Node.js</li>
+                <li>React &amp; modern frontend tooling</li>
+                <li>Microservices &amp; Domain-Driven Design</li>
+                <li>CI/CD pipelines</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CERTIFICATIONS ============ -->
+      <section id="certifications">
+        <div class="content-wrap">
+          <div class="section-head">
+            <h2>Certifications &amp; Credentials</h2>
+            <div class="section-sub">23 AWS credentials in total, nine of them full certifications — 55 credentials overall.</div>
+          </div>
+
+          <details class="cert-block" open>
+            <summary>AWS — Full Certifications <span class="count">(9)</span></summary>
+            <div class="cert-index">
+              <div>Solutions Architect – Associate</div>
+              <div>Developer – Associate</div>
+              <div>DevOps Engineer – Professional</div>
+              <div>Security – Specialty</div>
+              <div>Advanced Networking – Specialty</div>
+              <div>Data Engineer – Associate</div>
+              <div>Machine Learning Engineer – Associate</div>
+              <div>AI Practitioner</div>
+              <div>Cloud Practitioner</div>
+            </div>
+          </details>
+
+          <details class="cert-block">
+            <summary>AWS — Partner Accreditations &amp; Training <span class="count">(6)</span></summary>
+            <div class="cert-index">
+              <div>Partner Accreditation — Technical</div>
+              <div>Partner Sales Accreditation</div>
+              <div>Partner Generative AI Essentials</div>
+              <div>Partner Agentic AI Essentials</div>
+              <div>Partner Migration Acceleration Program Authorized</div>
+              <div>Well-Architected Proficient</div>
+            </div>
+          </details>
+
+          <details class="cert-block">
+            <summary>AWS — Microcredentials <span class="count">(8)</span></summary>
+            <div class="cert-index">
+              <div>Serverless — Demonstrated</div>
+              <div>MLOps — Demonstrated</div>
+              <div>Incident Response — Demonstrated</div>
+              <div>Application Networking — Demonstrated</div>
+              <div>Agentic AI — Demonstrated</div>
+              <div>Data Streaming — Demonstrated</div>
+              <div>Data Visualization — Demonstrated</div>
+              <div>Data Lakehouse — Demonstrated</div>
+            </div>
+          </details>
+
+          <details class="cert-block">
+            <summary>Microsoft <span class="count">(2)</span></summary>
+            <div class="cert-index">
+              <div>Certified: Azure Fundamentals</div>
+              <div>Certified: Azure Data Fundamentals</div>
+            </div>
+          </details>
+
+          <details class="cert-block">
+            <summary>Google Cloud <span class="count">(2)</span></summary>
+            <div class="cert-index">
+              <div>Associate Cloud Engineer</div>
+              <div>Generative AI Fundamentals</div>
+            </div>
+          </details>
+
+          <details class="cert-block">
+            <summary>Neo4j <span class="count">(2)</span></summary>
+            <div class="cert-index">
+              <div>Neo4j Certified Professional</div>
+              <div>Graph Data Science Certification</div>
+            </div>
+          </details>
+
+          <details class="cert-block">
+            <summary>Databricks <span class="count">(1)</span></summary>
+            <div class="cert-index">
+              <div>Data Engineering with Databricks</div>
+            </div>
+          </details>
+
+          <details class="cert-block">
+            <summary>dbt Labs <span class="count">(1)</span></summary>
+            <div class="cert-index">
+              <div>dbt Fundamentals</div>
+            </div>
+          </details>
+
+          <details class="cert-block">
+            <summary>Anthropic Academy <span class="count">(9)</span></summary>
+            <div class="cert-index">
+              <div>Claude 101</div>
+              <div>Claude Code 101</div>
+              <div>Claude Code in Action</div>
+              <div>Claude with Amazon Bedrock</div>
+              <div>Introduction to Agent Skills</div>
+              <div>Introduction to Model Context Protocol</div>
+              <div>Model Context Protocol — Advanced Topics</div>
+              <div>AI Fluency — Framework &amp; Foundations</div>
+              <div>AI Capabilities and Limitations</div>
+            </div>
+          </details>
+
+          <details class="cert-block">
+            <summary>APIsec University <span class="count">(8)</span></summary>
+            <div class="cert-index">
+              <div>API Authentication</div>
+              <div>Securing LLM and NLP APIs</div>
+              <div>OWASP API Security Top 10</div>
+              <div>API Gateway Security Best Practices</div>
+              <div>Securing API Servers</div>
+              <div>API Documentation Best Practices</div>
+              <div>API Security for Connected Cars and Fleets</div>
+              <div>API Penetration Testing</div>
+            </div>
+          </details>
+
+          <details class="cert-block">
+            <summary>INE Security <span class="count">(1)</span></summary>
+            <div class="cert-index">
+              <div>eJPT — Junior Penetration Tester</div>
+            </div>
+          </details>
+
+          <details class="cert-block">
+            <summary>Scrum.org <span class="count">(2)</span></summary>
+            <div class="cert-index">
+              <div>Professional Scrum Product Owner™ I</div>
+              <div>Professional Scrum Master™ I</div>
+            </div>
+          </details>
+
+          <details class="cert-block">
+            <summary>Pendo <span class="count">(2)</span></summary>
+            <div class="cert-index">
+              <div>AI for Product Management</div>
+              <div>Product-led Certification</div>
+            </div>
+          </details>
+
+          <details class="cert-block">
+            <summary>Certiprof <span class="count">(2)</span></summary>
+            <div class="cert-index">
+              <div>Cyber Security Foundation Professional Certificate</div>
+              <div>Lifelong Learning</div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ============ SPEAKING & RECOGNITION ============ -->
+      <section id="speaking">
+        <div class="content-wrap">
+          <div class="section-head"><h2>Speaking &amp; Recognition</h2></div>
+
+          <div class="talk">
+            <div class="talk-body">
+              <div>
+                <h3>"Try It!" — UPM's largest technology conference</h3>
+                <div class="meta">Invited speaker</div>
+                <p>Spoke on applied AI and cloud architecture at Universidad Politécnica de Madrid's flagship technology conference.</p>
+              </div>
+              <div class="talk-photos">
+                <div class="talk-photo">
+                  <img src="assets/try-it-upm-1.jpg" alt="David Fernández Rodríguez on stage at the Try It! UPM conference, next to the event's TRY IT sign, with the audience seated in front">
+                </div>
+                <div class="talk-photo">
+                  <img src="assets/try-it-upm-2.jpg" alt="David Fernández Rodríguez presenting a slide on typical DevOps tools during his Try It! UPM talk">
+                </div>
+              </div>
+            </div>
+
+            <div class="distinctions">
+              <h3>Academic distinctions</h3>
+              <div class="meta">Master's Degree in Computer Engineering, Universidad de Sevilla</div>
+              <ul>
+                <li>Information Systems — Merit with Distinction</li>
+                <li>Architecture and Integration of Software Systems — Merit with Distinction</li>
+                <li>Evolution and Configuration Management — Merit with Distinction</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ BOOKS ============ -->
+      <section id="books">
+        <div class="content-wrap">
+          <div class="section-head">
+            <h2>Books</h2>
+            <div class="section-sub">Published on Amazon KDP</div>
+          </div>
+
+          <div class="books-grid">
+            <div class="book">
+              <div class="book-cover"><img src="https://m.media-amazon.com/images/I/31wjqxI4aWL._UY266.jpg" alt="Aprende Rust en un fin de semana" loading="lazy"></div>
+              <div class="book-title"><a href="https://www.amazon.es/dp/B0CW1JPPFG" target="_blank" rel="noopener">Aprende Rust en un fin de semana</a></div>
+            </div>
+            <div class="book">
+              <div class="book-cover"><img src="https://m.media-amazon.com/images/I/31z5QExs0RL._UY266.jpg" alt="Aprende Rust resolviendo problemas: 100 ejercicios resueltos" loading="lazy"></div>
+              <div class="book-title"><a href="https://www.amazon.es/dp/B0CYXJTYFW" target="_blank" rel="noopener">Aprende Rust resolviendo problemas: 100 ejercicios resueltos</a></div>
+            </div>
+            <div class="book">
+              <div class="book-cover"><img src="https://m.media-amazon.com/images/I/31+MZQQ0OfL._UY266.jpg" alt="Aprende Python resolviendo problemas: 180 ejercicios de programación con soluciones, de principiante a avanzado" loading="lazy"></div>
+              <div class="book-title"><a href="https://www.amazon.es/dp/B0CHBCXPYF" target="_blank" rel="noopener">Aprende Python resolviendo problemas: 180 ejercicios</a></div>
+            </div>
+            <div class="book">
+              <div class="book-cover"><img src="https://m.media-amazon.com/images/I/315zHA13eQL._UY266.jpg" alt="Aprende Java con 200 ejercicios resueltos" loading="lazy"></div>
+              <div class="book-title"><a href="https://www.amazon.es/dp/B0CVFXBNFR" target="_blank" rel="noopener">Aprende Java con 200 ejercicios resueltos</a></div>
+            </div>
+            <div class="book">
+              <div class="book-cover"><img src="https://m.media-amazon.com/images/I/315G93pdyUL._UY266.jpg" alt="Aprende C resolviendo problemas: 100 ejercicios resueltos" loading="lazy"></div>
+              <div class="book-title"><a href="https://www.amazon.es/dp/B0DF6DG3PD" target="_blank" rel="noopener">Aprende C resolviendo problemas: 100 ejercicios resueltos</a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ WRITING ============ -->
+      <section id="writing">
+        <div class="content-wrap">
+          <div class="section-head">
+            <h2>Writing</h2>
+            <div class="section-sub">Published on <a href="https://medium.com/@dfernaro" target="_blank" rel="noopener">medium.com/@dfernaro</a></div>
+          </div>
+
+          <div class="pub"><a href="https://medium.com/@dfernaro/revealing-insights-a-comparative-study-of-varied-prompts-sql-database-utilisation-and-azure-18e51b8a5ede" target="_blank" rel="noopener">Revealing Insights: A Comparative Study of Varied Prompts, SQL Database Utilisation and Azure OpenAI</a><span class="kind">article</span></div>
+          <div class="pub"><a href="https://medium.com/@dfernaro/astounding-results-highly-accurate-face-comparison-using-ai-d70531685a2b" target="_blank" rel="noopener">Astounding Results: Highly Accurate Face Comparison Using AI</a><span class="kind">article</span></div>
+          <div class="pub"><a href="https://medium.com/@dfernaro/breaking-boundaries-managing-instances-without-internet-access-or-ssh-keys-3d9ac3d3ab7b" target="_blank" rel="noopener">Breaking Boundaries: Managing Instances without Internet Access or SSH Keys</a><span class="kind">article</span></div>
+          <div class="pub"><a href="https://medium.com/@dfernaro/the-art-of-efficient-product-catalog-unveiling-the-benefits-of-cdk-aws-service-catalog-42c09b4ae65c" target="_blank" rel="noopener">The Art of Efficient Product Catalog: Unveiling the Benefits of CDK &amp; AWS Service Catalog</a><span class="kind">article</span></div>
+          <div class="pub"><a href="https://medium.com/@dfernaro/unleash-your-websites-full-potential-the-ultimate-guide-to-deploying-your-static-site-on-s3-51470381a230" target="_blank" rel="noopener">Unleash Your Website's Full Potential: The Ultimate Guide to Deploying Your Static Site on S3</a><span class="kind">article</span></div>
+        </div>
+      </section>
+
+      <!-- ============ EDUCATION ============ -->
+      <section id="education">
+        <div class="content-wrap">
+          <div class="section-head"><h2>Education</h2></div>
+
+          <div class="edu"><h3>Master's Degree, Cybersecurity</h3><div class="org">IMF Smart Education · 2021 – 2022</div></div>
+          <div class="edu"><h3>Master's Degree, Computer Engineering</h3><div class="org">Universidad de Sevilla · 2017 – 2019</div></div>
+          <div class="edu"><h3>Bachelor's Degree, Computer Engineering — Software Engineering</h3><div class="org">Universidad de Sevilla · 2012 – 2016</div></div>
+          <div class="edu"><h3>Certificate of Higher Education, Development of Computer Applications</h3><div class="org">I.E.S Julio Verne · 2009 – 2012</div></div>
+        </div>
+      </section>
+
+      <!-- ============ WORK WITH ME ============ -->
+      <section id="work-with-me">
+        <div class="content-wrap">
+          <div class="section-head"><h2>Work with Me</h2></div>
+
+          <div class="work-grid">
+            <div class="work-card">
+              <h3>Speaking</h3>
+              <p>Open to conference talks, meetups, panels and podcast conversations on cloud architecture, AWS and applied AI.</p>
+              <a href="https://www.linkedin.com/in/dfernaro" target="_blank" rel="noopener">Get in touch on LinkedIn</a>
+            </div>
+            <div class="work-card">
+              <h3>Mentoring</h3>
+              <p>Available for paid 1:1 mentoring — AWS certifications, engineering leadership, or getting started with applied AI.</p>
+              <a href="https://www.linkedin.com/in/dfernaro" target="_blank" rel="noopener">Message on LinkedIn to arrange a session</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="content-wrap">
+        <div class="cols">
+          <div>
+            <h3>Contact</h3>
+            <div class="links">
+              <a href="https://www.linkedin.com/in/dfernaro" target="_blank" rel="noopener">linkedin.com/in/dfernaro</a>
+              <a href="https://medium.com/@dfernaro" target="_blank" rel="noopener">medium.com/@dfernaro</a>
+            </div>
+          </div>
+          <div>
+            <h3>Languages</h3>
+            <div class="langs">Spanish (native)<br>English (native / bilingual)<br>German (elementary)<br>French (elementary)</div>
+          </div>
+        </div>
+        <div class="copyright">© 2026 David Fernández Rodríguez — <a href="#main">Back to top</a></div>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  var links = document.querySelectorAll('.sidebar nav a[href^="#"], .mobile-drawer nav a[href^="#"]');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+  if (!sections.length || !links.length) return;
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        var id = entry.target.id;
+        links.forEach(function(link){
+          var match = link.getAttribute('href') === '#' + id;
+          if (match) link.setAttribute('aria-current', 'true');
+          else link.removeAttribute('aria-current');
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+  sections.forEach(function(s){ observer.observe(s); });
+})();
+
+(function(){
+  var toggle = document.getElementById('menuToggle');
+  var drawer = document.getElementById('mobileDrawer');
+  var backdrop = document.getElementById('drawerBackdrop');
+  var closeBtn = document.getElementById('drawerClose');
+  if (!toggle || !drawer || !backdrop || !closeBtn) return;
+
+  function openDrawer(){
+    drawer.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.classList.add('drawer-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    var firstLink = drawer.querySelector('a');
+    if (firstLink) firstLink.focus();
+  }
+  function closeDrawer(returnFocus){
+    drawer.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.classList.remove('drawer-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    if (returnFocus) toggle.focus();
+  }
+
+  toggle.addEventListener('click', function(){
+    var isOpen = drawer.classList.contains('open');
+    if (isOpen) closeDrawer(true); else openDrawer();
+  });
+  closeBtn.addEventListener('click', function(){ closeDrawer(true); });
+  backdrop.addEventListener('click', function(){ closeDrawer(false); });
+  drawer.addEventListener('click', function(e){
+    if (e.target.tagName === 'A') closeDrawer(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer(true);
+  });
+})();
+</script>
+
+</body>
+</html>
