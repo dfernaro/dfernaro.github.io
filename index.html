@@ -3,8 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>David Fernández Rodríguez — Technical Lead, Cloud Architecture &amp; Responsible AI</title>
-<meta name="description" content="Technical Lead with 10+ years across cloud architecture, team leadership, and applied AI. 23 AWS credentials, 9 full certifications, 55 credentials overall.">
+<title>David Fernández Rodríguez — Head of AWS · Cloud Architecture &amp; Generative AI</title>
+<meta name="description" content="Head of AWS at Plexus Tech. 10+ years in software engineering, 10 AWS certifications, international team leadership, generative AI, and open-source contributions.">
+<meta name="author" content="David Fernández Rodríguez">
+<link rel="canonical" href="https://dfernaro.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="David Fernández Rodríguez — Head of AWS">
+<meta property="og:description" content="Head of AWS at Plexus Tech. 10+ years in software engineering, 10 AWS certifications, international team leadership, generative AI, and open-source contributions.">
+<meta property="og:url" content="https://dfernaro.github.io/">
+<meta property="og:image" content="https://dfernaro.github.io/assets/social-preview.png">
+<meta property="og:image:width" content="1736">
+<meta property="og:image:height" content="906">
+<meta property="og:image:alt" content="David Fernández Rodríguez — Head of AWS — Cloud Architecture and Generative AI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="David Fernández Rodríguez — Head of AWS">
+<meta name="twitter:description" content="Head of AWS at Plexus Tech. 10+ years in software engineering, 10 AWS certifications, international team leadership, generative AI, and open-source contributions.">
+<meta name="twitter:image" content="https://dfernaro.github.io/assets/social-preview.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -221,14 +235,6 @@
   .distinctions li{ margin-bottom:6px; }
   @media (max-width:640px){ .talk-body{ grid-template-columns:1fr; } }
 
-  /* -------- books -------- */
-  .books-grid{ display:grid; grid-template-columns:repeat(5, 1fr); gap:18px; }
-  .book-cover{ aspect-ratio:2/3; border:1px solid var(--line); background:var(--panel); display:flex; align-items:center; justify-content:center; overflow:hidden; }
-  .book-cover img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .book-cover .placeholder{ font-size:11px; color:var(--muted); text-align:center; padding:10px; line-height:1.5; }
-  .book-title{ margin-top:9px; font-size:13px; font-weight:600; line-height:1.4; }
-  @media (max-width:600px){ .books-grid{ grid-template-columns:repeat(2, 1fr); } }
-
   /* -------- writing -------- */
   .pub{ display:flex; justify-content:space-between; gap:20px; padding:14px 0; border-top:1px solid var(--line); }
   .pub:first-child{ border-top:none; padding-top:0; }
@@ -258,6 +264,43 @@
     .pub{ flex-direction:column; gap:4px; }
     .credential-viz{ flex-direction:column; align-items:flex-start; }
   }
+
+  /* Updated content and accessible navigation */
+  [hidden]{ display:none !important; }
+  .hero-links{ display:flex; gap:12px 20px; flex-wrap:wrap; margin-top:28px; font-size:14px; font-weight:600; }
+  .focus-skills{ display:flex; flex-wrap:wrap; gap:8px; list-style:none; padding:0; margin:0 0 30px; }
+  .focus-skills li{ font-size:12.5px; font-weight:600; padding:6px 10px; border:1px solid var(--line); border-radius:4px; color:var(--accent); }
+  .experience-detail{ border-top:1px solid var(--line); }
+  .experience-detail:first-of-type{ margin-top:18px; }
+  .experience-detail summary{ padding:13px 0; cursor:pointer; font-weight:600; font-size:14.5px; color:var(--ink); }
+  .experience-detail summary::marker{ color:var(--accent); }
+  .experience-body{ padding:0 0 20px; }
+  .experience-body ul{ margin-top:4px; }
+  .role-period>p{ font-size:14px; color:var(--muted); margin:10px 0; }
+  .role .note strong{ color:var(--text); }
+  .stat-row{ gap:22px 30px; }
+  .stat-row .stat{ min-width:112px; max-width:160px; }
+  .sidebar nav{ margin-top:26px; overflow:auto; }
+  .sidebar nav a{ padding-top:5px; padding-bottom:5px; }
+  .talk-body{ grid-template-columns:1fr; }
+  .talk-body.has-photos{ grid-template-columns:1fr 240px; }
+  @media (max-width:900px){ section[id]{ scroll-margin-top:76px; } }
+  @media (max-width:640px){
+    .content-wrap{ padding:0 22px; }
+    .hero .kicker{ font-size:12.5px; }
+    .talk-body.has-photos{ grid-template-columns:1fr; }
+    .stat-row{ display:grid; grid-template-columns:1fr 1fr; }
+  }
+  @media print{
+    body{ background:#fff; font-size:11pt; }
+    .layout{ display:block; }
+    .sidebar,.mobile-topbar,.mobile-drawer,.drawer-backdrop,.skip-link,.hero-links{ display:none !important; }
+    .content-wrap{ max-width:none; padding:0; }
+    section,section:first-of-type{ padding:20px 0; }
+    h2,h3,summary{ break-after:avoid; }
+    .role,.work-card,.edu,.cert-block{ break-inside:avoid; }
+    a{ text-decoration:none; }
+  }
 </style>
 </head>
 <body>
@@ -268,20 +311,22 @@
 
   <aside class="sidebar" aria-label="Section navigation">
     <a href="#" class="mark">David Fernández Rodríguez</a>
-    <div class="role-line">Technical Lead<br>Cloud Architecture &amp; Responsible AI</div>
-    <nav>
-      <ul>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#speaking">Speaking</a></li>
-        <li><a href="#books">Books</a></li>
-        <li><a href="#writing">Writing</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#work-with-me">Work with Me</a></li>
-      </ul>
+    <div class="role-line">Head of AWS<br>Cloud Architecture &amp; Generative AI</div>
+    <nav><ul>
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#ai-work">AI Projects</a></li>
+<li><a href="#open-source">Open Source</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#certifications">Certifications</a></li>
+<li><a href="#speaking">Speaking</a></li>
+<li><a href="#writing">Writing</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#work-with-me">Work with Me</a></li>
+</ul>
     </nav>
     <div class="cta">
+      <a href="assets/david-fernandez-rodriguez-cv.pdf" target="_blank" rel="noopener" download>Download CV (PDF)</a>
       <a href="https://www.linkedin.com/in/dfernaro" target="_blank" rel="noopener">Message on LinkedIn →</a>
       <a href="https://medium.com/@dfernaro" target="_blank" rel="noopener">Read the blog</a>
     </div>
@@ -298,204 +343,286 @@
 
     <div class="drawer-backdrop" id="drawerBackdrop"></div>
 
-    <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Section navigation">
+    <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Section navigation" aria-hidden="true" inert>
       <div class="drawer-head">
         <div>
           <a href="#" class="mark">David Fernández Rodríguez</a>
-          <div class="role-line">Technical Lead<br>Cloud Architecture &amp; Responsible AI</div>
+          <div class="role-line">Head of AWS<br>Cloud Architecture &amp; Generative AI</div>
         </div>
         <button type="button" class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
       </div>
-      <nav aria-label="Section navigation">
-        <ul>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#speaking">Speaking</a></li>
-          <li><a href="#books">Books</a></li>
-          <li><a href="#writing">Writing</a></li>
-          <li><a href="#education">Education</a></li>
-        <li><a href="#work-with-me">Work with Me</a></li>
-        </ul>
+      <nav aria-label="Section navigation"><ul>
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#ai-work">AI Projects</a></li>
+<li><a href="#open-source">Open Source</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#certifications">Certifications</a></li>
+<li><a href="#speaking">Speaking</a></li>
+<li><a href="#writing">Writing</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#work-with-me">Work with Me</a></li>
+</ul>
       </nav>
       <div class="cta">
+      <a href="assets/david-fernandez-rodriguez-cv.pdf" target="_blank" rel="noopener" download>Download CV (PDF)</a>
         <a href="https://www.linkedin.com/in/dfernaro" target="_blank" rel="noopener">Message on LinkedIn →</a>
         <a href="https://medium.com/@dfernaro" target="_blank" rel="noopener">Read the blog</a>
       </div>
     </div>
 
     <main id="main">
-
-      <!-- ============ HERO ============ -->
-      <section class="hero">
-        <div class="content-wrap">
-          <div class="kicker">Technical Lead — Cloud Architecture &amp; Responsible AI</div>
-          <h1>David Fernández Rodríguez</h1>
-          <div class="location">Seville, Spain — teams built across Spain, Ireland, Germany, Denmark and the US</div>
-
-          <p class="pull-quote">"The best technical decisions are usually the boring ones: clear ownership, solid documentation, and knowing when not to over-engineer."</p>
-
-          <p class="lede">Ten years across cloud architecture, team leadership and, more recently, applied AI. At Plexus Tech I lead several projects at once, managing teams of 12 to 20 engineers and architects — including a team based in Mexico — and run the company's AWS Partnership strategy.</p>
-          <p class="lede">Lately I've been pushing responsible AI adoption inside the organization: helping engineers get comfortable with tools like Claude, and delivering production AI systems that go beyond a single use case — from a Retrieval-Augmented Generation platform to image recognition, OCR and sentiment analysis tools.</p>
-
-          <div class="credential-viz">
-            <div class="donut-figure">
-              <svg width="164" height="164" viewBox="0 0 200 200" role="img" aria-label="Donut chart: 55 credentials total, made up of 23 AWS, 9 Anthropic Academy, 8 APIsec University, and 15 from other issuers">
-                <g transform="rotate(-90 100 100)">
-                  <circle cx="100" cy="100" r="70" fill="none" stroke="var(--accent)" stroke-width="26" stroke-dasharray="183.9 439.8" stroke-dashoffset="0"></circle>
-                  <circle cx="100" cy="100" r="70" fill="none" stroke="var(--accent-2)" stroke-width="26" stroke-dasharray="71.96 439.8" stroke-dashoffset="-183.9"></circle>
-                  <circle cx="100" cy="100" r="70" fill="none" stroke="var(--accent-3)" stroke-width="26" stroke-dasharray="63.97 439.8" stroke-dashoffset="-255.86"></circle>
-                  <circle cx="100" cy="100" r="70" fill="none" stroke="var(--accent-4)" stroke-width="26" stroke-dasharray="119.95 439.8" stroke-dashoffset="-319.83"></circle>
-                </g>
-                <text x="100" y="96" text-anchor="middle" font-family="Newsreader, serif" font-size="34" fill="var(--ink)">55</text>
-                <text x="100" y="118" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" fill="var(--muted)">credentials</text>
-              </svg>
-            </div>
-            <div class="legend">
-              <div class="row"><span class="swatch" style="background:var(--accent)"></span><span><span class="n">23</span>AWS (certifications, accreditations &amp; microcredentials)</span></div>
-              <div class="row"><span class="swatch" style="background:var(--accent-2)"></span><span><span class="n">9</span>Anthropic Academy</span></div>
-              <div class="row"><span class="swatch" style="background:var(--accent-3)"></span><span><span class="n">8</span>APIsec University</span></div>
-              <div class="row"><span class="swatch" style="background:var(--accent-4)"></span><span><span class="n">15</span>Microsoft, Google, Neo4j, Databricks, dbt Labs &amp; other issuers</span></div>
-            </div>
-          </div>
-
-          <div class="stat-row">
-            <div class="stat"><div class="num">10+</div><div class="label">Years leading engineering</div></div>
-            <div class="stat"><div class="num">12–20</div><div class="label">Engineers led at once</div></div>
-            <div class="stat"><div class="num">−25%</div><div class="label">Monthly AWS spend cut</div></div>
-            <div class="stat"><div class="num">+30%</div><div class="label">Team productivity lift</div></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ EXPERIENCE ============ -->
-      <section id="experience">
-        <div class="content-wrap">
-          <div class="section-head"><h2>Experience</h2></div>
-
-          <div class="role">
-            <div class="when">2025 — Present</div>
-            <h3>Technical Lead</h3>
-            <div class="org">Plexus Tech · Remote</div>
-            <ul>
-              <li>Lead delivery for several concurrent technical projects, managing teams of 12–20 developers, architects and other engineers, including a team based in Mexico.</li>
-              <li>Run the AWS Partnership strategy — certifications, lead generation and technical accreditation — while applying to become an AWS Ambassador.</li>
-              <li>Champion responsible AI adoption across the organization and delivered a production Retrieval-Augmented Generation (RAG) system.</li>
-              <li>Cut monthly AWS spend by 25% with no impact on performance, and lifted team productivity by 30% through process and tooling changes.</li>
-            </ul>
-          </div>
-
-          <div class="role">
-            <div class="when">2024 — 2025</div>
-            <h3>Senior Software Engineer</h3>
-            <div class="org">Complexio · Denmark</div>
-            <ul>
-              <li>Led design and deployment of AI-driven pattern-recognition systems using LLMs and vLLM, automating processing of event-based data across formats.</li>
-              <li>Optimized model performance through prompt engineering and fine-tuning to improve accuracy and reduce latency in production.</li>
-              <li>Built scalable, real-time AI pipelines on Azure with Pulumi for infrastructure-as-code and CI/CD.</li>
-            </ul>
-          </div>
-
-          <div class="role">
-            <div class="when">2022 — 2024</div>
-            <h3>Technical Lead, Solutions Architect &amp; Senior Software Engineer</h3>
-            <div class="org">Spark · Ireland</div>
-            <ul>
-              <li>Led cross-functional teams delivering a recommendation system, a customer-feedback analysis pipeline, and LLM chatbots built with LangChain and OpenAI.</li>
-              <li>Designed scalable architectures using Domain-Driven Design and clean architecture principles.</li>
-              <li>Set coding standards and mentored the wider engineering team.</li>
-            </ul>
-          </div>
-
-          <div class="role">
-            <div class="when">2021 — 2022</div>
-            <h3>Software Architect &amp; Senior Software Engineer</h3>
-            <div class="org">1xINTERNET · Germany</div>
-            <ul>
-              <li>Designed and delivered enterprise software for retail, health and pharmaceutical clients.</li>
-              <li>Managed development teams and ran code review and QA processes.</li>
-              <li>Training sessions lifted junior developers' coding efficiency by 25%.</li>
-            </ul>
-          </div>
-
-          <div class="role">
-            <div class="when">2020 — 2021</div>
-            <h3>Delivery Manager</h3>
-            <div class="org">Sopra Steria · Seville, Spain</div>
-            <ul>
-              <li>Oversaw delivery of multiple concurrent projects, managing risk, scope and stakeholder expectations.</li>
-              <li>Acted as primary liaison between clients and cross-functional delivery teams.</li>
-            </ul>
-          </div>
-
-          <div class="role">
-            <div class="when">2016 — 2020</div>
-            <h3>Senior Software Engineer &amp; Data Engineer</h3>
-            <div class="org">everis · Seville, Spain</div>
-            <ul>
-              <li>Migrated data from multiple sources into Drupal 8 and built reusable web components and REST APIs.</li>
-              <li>Managed teams of two to five, delivering ETL, Open Data and e-health projects across public and private sector clients.</li>
-            </ul>
-            <div class="note">Earlier: freelance web development and a software engineering internship (2012–2016).</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ SKILLS ============ -->
-      <section id="skills">
-        <div class="content-wrap">
-          <div class="section-head"><h2>Skills</h2></div>
-          <div class="skills-grid">
-            <div class="skill-group">
-              <h3>Cloud &amp; Infrastructure</h3>
-              <ul>
-                <li>AWS (Solutions Architect, DevOps, Security, Networking, Data, ML)</li>
-                <li>Microsoft Azure &amp; Google Cloud Platform</li>
-                <li>Terraform, CloudFormation, CDK, Pulumi, Ansible</li>
-                <li>Docker &amp; container orchestration</li>
-              </ul>
-            </div>
-            <div class="skill-group">
-              <h3>AI &amp; Applied ML</h3>
-              <ul>
-                <li>Retrieval-Augmented Generation (RAG)</li>
-                <li>Anthropic Claude &amp; Model Context Protocol</li>
-                <li>LLM fine-tuning &amp; prompt engineering</li>
-                <li>LangChain, vLLM</li>
-              </ul>
-            </div>
-            <div class="skill-group">
-              <h3>Leadership &amp; Delivery</h3>
-              <ul>
-                <li>Managing engineering teams of 12–20</li>
-                <li>Mentoring, 1:1s and talent development</li>
-                <li>Budget and time tracking ownership</li>
-                <li>Pre-sales, client meetings and RFPs</li>
-              </ul>
-            </div>
-            <div class="skill-group">
-              <h3>Engineering</h3>
-              <ul>
-                <li>Java, Python, Node.js</li>
-                <li>React &amp; modern frontend tooling</li>
-                <li>Microservices &amp; Domain-Driven Design</li>
-                <li>CI/CD pipelines</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ CERTIFICATIONS ============ -->
-      <section id="certifications">
+<section class="hero" id="about"><div class="content-wrap">
+  <div class="kicker">Head of AWS · Cloud Architecture &amp; Generative AI</div>
+  <h1>David Fernández Rodríguez</h1>
+  <div class="location">Seville, Spain · International engineering and architecture experience</div>
+  <p class="lede">My background is in software engineering, and it still shapes how I approach cloud architecture: understand the problem, make the decisions clear, and keep complexity under control.</p>
+  <p class="lede">Today, I lead the AWS practice at Plexus Tech, covering technical direction, capability development, and partner initiatives. In 2026, I helped the company achieve AWS Advanced Tier partner status.</p>
+  <p class="lede">My career spans Spain, Ireland, Germany, and Denmark, with teams across Spain and Mexico and collaboration with people of 20 different nationalities. My AI work includes recommendation systems, chatbots, workflow automation, production RAG systems, and MCP integrations for email and document processing.</p>
+  <p class="pull-quote">Clear ownership, solid documentation, and knowing when not to over-engineer.</p>
+  <div class="stat-row" aria-label="Professional highlights">
+    <div class="stat"><div class="num">10+</div><div class="label">Years in software engineering</div></div>
+    <div class="stat"><div class="num">10</div><div class="label">AWS certifications</div></div>
+    <div class="stat"><div class="num">+30%</div><div class="label">Team productivity<br>AI adoption &amp; process improvements</div></div>
+    <div class="stat"><div class="num">−25%</div><div class="label">Monthly AWS spending</div></div>
+  </div>
+  <div class="hero-links"><a href="assets/david-fernandez-rodriguez-cv.pdf" target="_blank" rel="noopener" download>Download CV (PDF)</a><a href="#experience">Explore my experience</a><a href="https://github.com/dfernaro" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/dfernaro" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+</div></section>
+<section id="experience"><div class="content-wrap">
+      <div class="section-head"><h2>Experience</h2>
+      </div>
+      <article class="role">
+      <div class="when">May 2026 – Present</div>
+      <h3>Head of AWS</h3>
+      <div class="org">Plexus Tech · Remote</div>
+      <p>Lead the AWS practice at Plexus Tech, with responsibility for technical direction, capability development, and AWS Partner initiatives.</p>
+      <ul>
+<li>Led partner development initiatives that helped Plexus Tech achieve AWS Advanced Tier partner status in 2026.</li>
+<li>Set technical priorities for the AWS practice and guide teams through architecture and implementation decisions.</li>
+<li>Coordinate AWS certification and technical development programmes, helping engineers and architects build practical cloud expertise.</li>
+<li>Work with commercial and delivery teams to develop AWS opportunities, shape solution proposals, and support technical pre-sales.</li>
+<li>Advise clients and internal teams on AWS architecture, security, scalability, and cost optimisation.</li>
+<li>Support responsible AI adoption, drawing on experience delivering RAG solutions and guiding engineering teams.</li>
+<li>Contribute open-source pull requests involving AWS CDK, Amazon Bedrock AgentCore, and Amazon Bedrock modules.</li>
+<li>Spoke at “Try It!”, a technology conference at Universidad Politécnica de Madrid (UPM).</li>
+</ul>
+    </article><article class="role">
+      <div class="when">2025 – May 2026</div>
+      <h3>Technical Lead</h3>
+      <div class="org">Plexus Tech · Remote · Teams in Spain and Mexico</div>
+      <p>Led concurrent technology projects involving 12–20 developers, solutions architects, and other technical specialists, including responsibility for a team in Mexico.</p>
+      <ul>
+<li>Managed project planning and delivery, including workload allocation, time tracking, and budget control.</li>
+<li>Mentored engineers through 1:1s, code reviews, and individual development plans.</li>
+<li>Designed AWS architectures for availability, scalability, and security, and led on-premises-to-cloud migrations.</li>
+<li>Automated infrastructure provisioning and systems integration using AWS CDK, CloudFormation, Terraform, Pulumi, and Ansible.</li>
+<li>Advised clients and internal teams on AWS adoption and contributed to technical pre-sales, solution proposals, and tender/RFP responses.</li>
+<li>Supported AWS Partner development through lead generation and company-wide certification initiatives.</li>
+<li>Guided responsible AI adoption within engineering teams and delivered a retrieval-augmented generation (RAG) solution.</li>
+<li>Reduced monthly AWS spending by 25% without affecting application performance.</li>
+<li>Improved team productivity by 30% through AI adoption and process improvements.</li>
+</ul>
+    </article><article class="role">
+      <div class="when">November 2024 – May 2025</div>
+      <h3>Senior Software Engineer</h3>
+      <div class="org">Complexio · Denmark · Remote</div>
+      <p>Developed AI solutions using company-wide data to automate business workflows and identify operational patterns, with production workloads running on Azure.</p>
+      <ul>
+<li>Led the design and deployment of LLM-based pattern recognition systems using vLLM, automating the processing of event data across multiple formats.</li>
+<li>Improved model accuracy and reduced production latency through prompt engineering, model fine-tuning, and deployment optimisation.</li>
+<li>Built scalable pipelines for real-time AI workloads on Azure, using Pulumi to define infrastructure as code and support CI/CD workflows.</li>
+<li>Worked with cross-functional teams to integrate AI capabilities into backend systems and align model outputs with product requirements.</li>
+</ul><p class="note"><strong>Technologies and tools:</strong> Azure, LLMs, vLLM, Pulumi, prompt engineering, model fine-tuning, infrastructure as code, CI/CD.</p>
+    </article><article class="role role-period">
+      <div class="when">2022 – 2024</div>
+      <h3>Spark · Ireland</h3>
+      <p>Engineering, architecture, and technical leadership roles during this period.</p>
+      <details class="experience-detail">
+      <summary>Technical Lead</summary>
+      <div class="experience-body"><ul>
+<li>Led cross-functional engineering teams, guiding technical strategy and aligning implementation with product and business priorities.</li>
+<li>Led the development of AI solutions, including a recommendation system and an automated tool for analysing customer feedback.</li>
+<li>Developed an LLM chatbot using LangChain and OpenAI GPT models, alongside an NLP chatbot integrated with a customer service platform.</li>
+<li>Designed scalable software architectures, including solutions on AWS, and guided teams through technical decisions and implementation.</li>
+<li>Established coding standards and mentored engineers, supporting code quality and consistent development practices.</li>
+<li>Applied clean architecture, Domain-Driven Design (DDD), and design patterns to model business logic and improve maintainability.</li>
+</ul><p class="note"><strong>Technologies and tools:</strong> AWS, LangChain, OpenAI GPT models, LLMs, NLP, clean architecture, DDD, design patterns.</p></div>
+    </details><details class="experience-detail">
+      <summary>Solutions Architect</summary>
+      <div class="experience-body"><ul>
+<li>Translated business and technical requirements into AWS solution designs for data-driven applications.</li>
+<li>Evaluated architecture options and technical trade-offs, assessing risks and constraints to define implementation approaches.</li>
+<li>Designed serverless solutions and defined infrastructure as code using AWS CDK, Terraform, and CloudFormation.</li>
+<li>Contributed to implementation through Python development, infrastructure automation, and CI/CD workflows.</li>
+</ul><p class="note"><strong>Technologies and tools:</strong> AWS, AWS CDK, Python, Terraform, CloudFormation, serverless development, DevOps, CI/CD.</p></div>
+    </details><details class="experience-detail">
+      <summary>Senior Software Engineer</summary>
+      <div class="experience-body"><ul>
+<li>Led and mentored engineers, providing technical guidance and supporting their professional development.</li>
+<li>Defined technical goals and engineering roadmaps, delegated tasks, and managed workloads to meet project deadlines.</li>
+<li>Designed systems and software architectures around business requirements, balancing scalability, performance, security, and maintainability.</li>
+<li>Evaluated technical approaches, identified risks, and prepared contingency plans.</li>
+<li>Established coding standards and code review practices, and coordinated unit, integration, and end-to-end testing.</li>
+<li>Worked with product managers and designers to align technical solutions with user needs and product priorities.</li>
+<li>Explained technical decisions and trade-offs to technical and non-technical stakeholders, and encouraged knowledge sharing.</li>
+</ul></div>
+    </details>
+    </article><article class="role role-period">
+      <div class="when">2021 – 2022</div>
+      <h3>1xINTERNET · Germany</h3>
+      
+      <details class="experience-detail">
+      <summary>Software Architect</summary>
+      <div class="experience-body"><ul>
+<li>Promoted to Software Architect, contributing to projects across the retail, healthcare, and pharmaceutical sectors.</li>
+<li>Designed enterprise software architectures and solutions aligned with business requirements.</li>
+<li>Evaluated technical challenges and proposed solutions that balanced scalability, performance, security, and maintainability.</li>
+<li>Led development teams, mentored engineers, and provided technical guidance to other architects.</li>
+<li>Established coding standards, code review practices, and quality assurance processes.</li>
+<li>Defined and proposed new components for internal products and improved the performance of internal and external components.</li>
+<li>Coordinated unit, integration, and end-to-end testing to verify functionality and reliability.</li>
+</ul><p class="note"><strong>Technologies and tools:</strong> Azure, Docker, Docker Compose, GitLab CI/CD, React, Web Components, Storybook, HTML, CSS, JavaScript, TypeScript, Tailwind CSS, Webpack, Babel, Sass, PHP, Node.js, Express, MySQL, MariaDB, PostgreSQL, MongoDB, Redis, Drupal 8 and 9, Elasticsearch, Jest, Testing Library, npm, Yarn, Git, Bitbucket, GitHub, GraphQL, REST APIs, microservices, Agile/Scrum, Linux, shell scripting.</p></div>
+    </details><details class="experience-detail">
+      <summary>Senior Software Engineer</summary>
+      <div class="experience-body"><ul>
+<li>Led development teams and mentored colleagues across disciplines, supporting technical decisions and day-to-day delivery.</li>
+<li>Designed and developed enterprise software solutions, working with stakeholders throughout implementation.</li>
+<li>Managed GitLab CI/CD pipelines to automate build, test, and deployment workflows.</li>
+<li>Delivered training sessions that improved junior developers’ coding efficiency by 25%.</li>
+<li>Introduced coding standards, code reviews, and quality assurance practices to improve maintainability.</li>
+<li>Defined and proposed new product components, helped colleagues resolve bugs, and created technical documentation.</li>
+</ul><p class="note"><strong>Technologies and tools:</strong> Azure, Docker, Docker Compose, GitLab CI/CD, React, Web Components, Storybook, HTML, CSS, JavaScript, TypeScript, Tailwind CSS, Webpack, Babel, Sass, PHP, Node.js, Express, MySQL, MariaDB, PostgreSQL, MongoDB, Redis, Drupal 8 and 9, Elasticsearch, Jest, Testing Library, npm, Yarn, Git, Bitbucket, GitHub, GraphQL, REST APIs, microservices, Agile/Scrum, Linux, shell scripting.</p></div>
+    </details>
+    </article><article class="role">
+      <div class="when">2020 – 2021</div>
+      <h3>Delivery Manager</h3>
+      <div class="org">Sopra Steria · Seville, Spain</div>
+      
+      <ul>
+<li>Managed multiple concurrent projects, aligning delivery plans with business priorities and agreed timelines, scope, and quality standards.</li>
+<li>Coordinated work across internal teams and third-party contributors, clarifying responsibilities and managing dependencies.</li>
+<li>Identified delivery risks and worked with teams to resolve blockers and adjust plans when requirements changed.</li>
+<li>Tracked milestones and progress, keeping clients and stakeholders informed of delivery status, outstanding issues, and decisions needed.</li>
+<li>Served as the main contact between clients, stakeholders, and cross-functional teams, aligning expectations and maintaining clear communication.</li>
+<li>Supported team performance through structured planning, regular progress reviews, and improvements to delivery practices.</li>
+</ul>
+    </article><article class="role role-period">
+      <div class="when">2016 – 2020</div>
+      <h3>everis · Seville, Spain</h3>
+      <p>Data engineering, application development, and technical leadership across public and private sector projects.</p>
+      <details class="experience-detail">
+      <summary>Senior Software Engineer — Data Migration &amp; Web Components</summary>
+      <div class="experience-body"><ul>
+<li>Led data migration and reusable web component development for a project designed to serve as a reference for future implementations, using REST services and OpenShift deployments.</li>
+<li>Migrated data from multiple sources to Drupal 8.</li>
+<li>Developed Spring Boot microservices and REST APIs for third-party access.</li>
+<li>Built reusable web components with LitElement and published them to Nexus.</li>
+<li>Set up Jenkins deployment pipelines and created Docker images.</li>
+<li>Managed a team of five within a wider project team of around 20, estimating tasks and tracking delivery against deadlines.</li>
+</ul><p class="note"><strong>Technologies and tools:</strong> Java, Spring Boot, WSO2 Enterprise Integrator, WSO2 API Manager, Elasticsearch, Kibana, Jenkins, Docker, OpenShift, Git, Nexus, Drupal 6 and 8, MariaDB, MongoDB, shell scripting, SOAP and REST services, React, LitElement, HTML5, CSS3, JavaScript, Bootstrap, Jira, Confluence.</p></div>
+    </details><details class="experience-detail">
+      <summary>Software Engineer — Open Data</summary>
+      <div class="experience-body"><ul>
+<li>Led the implementation of an open data platform, with responsibility for technical delivery and a team of two.</li>
+<li>Analysed the client’s existing architecture and documented the system assessment, platform architecture, information model, and deployment design in Confluence.</li>
+<li>Installed and configured CKAN as the open data platform.</li>
+<li>Developed REST APIs for third-party access, created Docker images, and configured scheduled tasks for recurring processes.</li>
+<li>Supported colleagues with technical questions and project tasks.</li>
+</ul><p class="note"><strong>Technologies and tools:</strong> Java, CKAN, WSO2 Enterprise Integrator, WSO2 API Manager, Docker, Docker Compose, Git, Apache Solr, shell scripting, SOAP and REST services, Oracle, HTML5, CSS3, JavaScript, Angular 6, Bootstrap, Jira, Confluence.</p></div>
+    </details><details class="experience-detail">
+      <summary>Data Analyst &amp; Data Engineer</summary>
+      <div class="experience-body"><ul>
+<li>Worked on data and application projects in the private and public sectors, spanning ETL development, technical support, and team management.</li>
+<li>Endesa: implemented ETL processes to automate loading into SQL Server, wrote SQL queries, and contributed to frontend and backend development.</li>
+<li>Endesa: managed a team of two, estimated tasks, resolved incidents, and maintained project documentation.</li>
+<li>Public sector treasury project: implemented automated data loading, resolved client and team queries, and monitored task progress.</li>
+<li>Managed a team and configured an SMTP server for email communications.</li>
+</ul><p class="note"><strong>Technologies and tools:</strong> SQL Server, Microsoft ETL and reporting tools, JavaScript, React, Highcharts, HTML5, CSS, Bootstrap, Python, SQLite, pandas, MySQL, Git.</p></div>
+    </details><details class="experience-detail">
+      <summary>Software Engineer — E-health</summary>
+      <div class="experience-body"><ul>
+<li>Contributed to software development, application support, and testing during a six-month public sector e-health project.</li>
+<li>Investigated customer incidents, wrote SQL queries, and estimated development tasks.</li>
+<li>Contributed to frontend and backend development and wrote API and technical documentation.</li>
+<li>Developed unit tests with JUnit and Mockito, and prepared and executed test plans.</li>
+</ul><p class="note"><strong>Technologies and tools:</strong> Java, Spring Framework, Spring Security, SQL, HTML5, CSS, JavaScript, Bootstrap, jQuery, Apache POI, Apache Tiles, HAPI, JUnit, Mockito, SoapUI, WSO2 Enterprise Service, WSO2 Governance Registry, WSO2 Data Services Server, SVN, Jira, Confluence, FortiClient.</p></div>
+    </details>
+    </article><article class="role role-period">
+      <div class="when">2012 – 2016</div>
+      <h3>Earlier Experience</h3>
+      <p>Freelance web development and a public sector software development internship.</p>
+      <details class="experience-detail">
+      <summary>Software Developer — Freelance</summary>
+      <div class="experience-body"><ul>
+<li>Built and maintained WordPress websites, customised themes, and improved site performance and SEO.</li>
+<li>Diagnosed and fixed issues affecting website functionality, speed, and security.</li>
+<li>Automated recurring tasks with Python scripts, saving clients time and reducing errors.</li>
+<li>Worked directly with clients to define requirements, deliver projects, and provide ongoing support.</li>
+<li>Supported website migrations, backups, and content management.</li>
+</ul><p class="note"><strong>Technologies and tools:</strong> WordPress, Python, HTML, CSS, JavaScript.</p></div>
+    </details><details class="experience-detail">
+      <summary>Software Developer Intern</summary>
+      <div class="experience-body"><ul>
+<li>Contributed to the development and implementation of software for a public sector project.</li>
+<li>Received a recommendation from the director in recognition of work during the internship.</li>
+</ul><p class="note"><strong>Technologies and tools:</strong> Java, JSF, Hibernate, Spring Framework, Oracle, HTML, CSS, JavaScript.</p></div>
+    </details>
+    </article>
+    </div></section>
+<section id="ai-work"><div class="content-wrap">
+      <div class="section-head"><h2>AI Projects</h2>
+      <p class="section-sub">Selected work across multiple roles, from customer-facing applications to data processing and internal workflows.</p></div>
+      <div class="work-grid"><article class="work-card"><h3>Production RAG systems</h3><p>Delivered retrieval-augmented generation systems in production, combining information retrieval with LLM-based responses.</p></article><article class="work-card"><h3>Email &amp; document workflows</h3><p>Built MCP integrations for email processing, sentiment analysis, and identifying missing documents. Other work includes OCR and image recognition.</p></article><article class="work-card"><h3>Recommendations &amp; conversational AI</h3><p>Developed recommendation systems, customer feedback analysis tools, and LLM/NLP chatbots, including integrations with customer service platforms.</p></article><article class="work-card"><h3>AI workloads on Azure</h3><p>Developed LLM-based pattern recognition and real-time data processing pipelines using vLLM, Azure, and Pulumi, with prompt engineering and model fine-tuning.</p></article></div>
+    </div></section>
+<section id="open-source"><div class="content-wrap">
+      <div class="section-head"><h2>Open Source</h2>
+      <p class="section-sub">Ongoing contributions through pull requests. Links include open and closed submissions.</p></div>
+      <div class="work-grid"><article class="work-card"><h3>AWS CDK</h3><p>Contribute pull requests involving AWS CDK, drawing on practical infrastructure-as-code and cloud architecture experience.</p><a href="https://github.com/aws/aws-cdk/pulls?q=is%3Apr%20author%3Adfernaro" target="_blank" rel="noopener">View pull requests ↗</a></article><article class="work-card"><h3>Amazon Bedrock &amp; AgentCore</h3><p>Contribute pull requests involving Amazon Bedrock AgentCore and Amazon Bedrock modules.</p><a href="https://github.com/search?q=author%3Adfernaro%20is%3Apr%20bedrock&amp;type=pullrequests" target="_blank" rel="noopener">Explore related pull requests ↗</a></article></div>
+    </div></section>
+<section id="skills"><div class="content-wrap">
+      <div class="section-head"><h2>Skills</h2>
+      </div>
+      <ul class="focus-skills" aria-label="Core specialisations"><li>Amazon Web Services</li><li>Solution Architecture</li><li>Generative AI</li><li>Leadership</li><li>Cloud Security</li></ul><div class="skills-grid"><div class="skill-group"><h3>Cloud &amp; Infrastructure</h3><ul>
+<li>AWS architecture, serverless solutions, and cloud migration</li>
+<li>AWS CDK, CloudFormation, Terraform, Pulumi, Ansible</li>
+<li>Microsoft Azure and Google Cloud</li>
+<li>Docker, Docker Compose, OpenShift</li>
+</ul></div><div class="skill-group"><h3>Generative AI &amp; Applied ML</h3><ul>
+<li>Production RAG systems, MCP integrations, and AI workflow automation</li>
+<li>Amazon Bedrock, AgentCore, Claude, OpenAI, LangChain, vLLM</li>
+<li>Prompt engineering, model fine-tuning, and LLM deployment</li>
+<li>Recommendation systems, NLP, sentiment analysis, OCR</li>
+</ul></div><div class="skill-group"><h3>Leadership &amp; AWS Partnership</h3><ul>
+<li>Distributed engineering and architecture teams of 12–20</li>
+<li>AWS Partner development and certification programmes</li>
+<li>Mentoring, technical direction, and delivery planning</li>
+<li>Technical pre-sales, solution proposals, RFPs, and budget control</li>
+</ul></div><div class="skill-group"><h3>Software Architecture &amp; Engineering</h3><ul>
+<li>Java, Python, JavaScript, TypeScript, PHP, Node.js</li>
+<li>Spring Boot, React, Angular, Web Components, LitElement</li>
+<li>Clean architecture, DDD, design patterns, and microservices</li>
+<li>REST, GraphQL, SOAP, WSO2, CKAN, Drupal, WordPress</li>
+</ul></div><div class="skill-group"><h3>Data &amp; Integration</h3><ul>
+<li>ETL pipelines, SQL, pandas, and database migration</li>
+<li>SQL Server, Oracle, MySQL, MariaDB, PostgreSQL, SQLite</li>
+<li>MongoDB, Redis, Elasticsearch, Apache Solr</li>
+<li>Microsoft ETL and reporting tools, Highcharts</li>
+</ul></div><div class="skill-group"><h3>Security &amp; Software Quality</h3><ul>
+<li>Secure cloud architecture and responsible AI adoption</li>
+<li>Coding standards, code reviews, and technical documentation</li>
+<li>JUnit, Mockito, Jest, Testing Library, SoapUI</li>
+<li>GitLab CI/CD, Jenkins, Git, Bash/shell scripting, Linux</li>
+</ul></div></div>
+    </div></section>
+<section id="certifications">
         <div class="content-wrap">
           <div class="section-head">
             <h2>Certifications &amp; Credentials</h2>
-            <div class="section-sub">23 AWS credentials in total, nine of them full certifications — 55 credentials overall.</div>
+            <div class="section-sub">10 AWS certifications, complemented by partner accreditations, technical microcredentials, and training across cloud, AI, and security.</div>
           </div>
 
           <details class="cert-block" open>
-            <summary>AWS — Full Certifications <span class="count">(9)</span></summary>
+            <summary>AWS — Certifications <span class="count">(10)</span></summary>
             <div class="cert-index">
               <div>Solutions Architect – Associate</div>
               <div>Developer – Associate</div>
@@ -506,6 +633,7 @@
               <div>Machine Learning Engineer – Associate</div>
               <div>AI Practitioner</div>
               <div>Cloud Practitioner</div>
+              <div>AI Business Strategist</div>
             </div>
           </details>
 
@@ -522,7 +650,7 @@
           </details>
 
           <details class="cert-block">
-            <summary>AWS — Microcredentials <span class="count">(8)</span></summary>
+            <summary>AWS — Microcredentials <span class="count">(10)</span></summary>
             <div class="cert-index">
               <div>Serverless — Demonstrated</div>
               <div>MLOps — Demonstrated</div>
@@ -532,11 +660,13 @@
               <div>Data Streaming — Demonstrated</div>
               <div>Data Visualization — Demonstrated</div>
               <div>Data Lakehouse — Demonstrated</div>
+              <div>Databases for Agentic AI — Demonstrated</div>
+              <div>Securing Agent Identities — Demonstrated</div>
             </div>
           </details>
 
           <details class="cert-block">
-            <summary>Microsoft <span class="count">(2)</span></summary>
+            <summary>Microsoft — Certifications <span class="count">(2)</span></summary>
             <div class="cert-index">
               <div>Certified: Azure Fundamentals</div>
               <div>Certified: Azure Data Fundamentals</div>
@@ -544,7 +674,7 @@
           </details>
 
           <details class="cert-block">
-            <summary>Google Cloud <span class="count">(2)</span></summary>
+            <summary>Google Cloud — Certification &amp; Training <span class="count">(2)</span></summary>
             <div class="cert-index">
               <div>Associate Cloud Engineer</div>
               <div>Generative AI Fundamentals</div>
@@ -560,21 +690,21 @@
           </details>
 
           <details class="cert-block">
-            <summary>Databricks <span class="count">(1)</span></summary>
+            <summary>Databricks — Training <span class="count">(1)</span></summary>
             <div class="cert-index">
               <div>Data Engineering with Databricks</div>
             </div>
           </details>
 
           <details class="cert-block">
-            <summary>dbt Labs <span class="count">(1)</span></summary>
+            <summary>dbt Labs — Training <span class="count">(1)</span></summary>
             <div class="cert-index">
               <div>dbt Fundamentals</div>
             </div>
           </details>
 
           <details class="cert-block">
-            <summary>Anthropic Academy <span class="count">(9)</span></summary>
+            <summary>Anthropic Academy — Courses <span class="count">(9)</span></summary>
             <div class="cert-index">
               <div>Claude 101</div>
               <div>Claude Code 101</div>
@@ -589,7 +719,7 @@
           </details>
 
           <details class="cert-block">
-            <summary>APIsec University <span class="count">(8)</span></summary>
+            <summary>APIsec University — Courses <span class="count">(8)</span></summary>
             <div class="cert-index">
               <div>API Authentication</div>
               <div>Securing LLM and NLP APIs</div>
@@ -618,7 +748,7 @@
           </details>
 
           <details class="cert-block">
-            <summary>Pendo <span class="count">(2)</span></summary>
+            <summary>Pendo — Training <span class="count">(2)</span></summary>
             <div class="cert-index">
               <div>AI for Product Management</div>
               <div>Product-led Certification</div>
@@ -634,25 +764,23 @@
           </details>
         </div>
       </section>
-
-      <!-- ============ SPEAKING & RECOGNITION ============ -->
-      <section id="speaking">
+<section id="speaking">
         <div class="content-wrap">
           <div class="section-head"><h2>Speaking &amp; Recognition</h2></div>
 
           <div class="talk">
             <div class="talk-body">
               <div>
-                <h3>"Try It!" — UPM's largest technology conference</h3>
-                <div class="meta">Invited speaker</div>
-                <p>Spoke on applied AI and cloud architecture at Universidad Politécnica de Madrid's flagship technology conference.</p>
+                <h3>“Try It!” — Universidad Politécnica de Madrid</h3>
+                <div class="meta">Invited speaker · March 2026 · Madrid, Spain</div>
+                <p>Shared practical experience in applied AI and cloud architecture at UPM’s technology conference.</p>
               </div>
               <div class="talk-photos">
-                <div class="talk-photo">
-                  <img src="assets/try-it-upm-1.jpg" alt="David Fernández Rodríguez on stage at the Try It! UPM conference, next to the event's TRY IT sign, with the audience seated in front">
+                <div class="talk-photo" hidden>
+                  <img data-src="assets/try-it-upm-1.jpg" alt="David Fernández Rodríguez on stage at the Try It! UPM conference, next to the event's TRY IT sign, with the audience seated in front">
                 </div>
-                <div class="talk-photo">
-                  <img src="assets/try-it-upm-2.jpg" alt="David Fernández Rodríguez presenting a slide on typical DevOps tools during his Try It! UPM talk">
+                <div class="talk-photo" hidden>
+                  <img data-src="assets/try-it-upm-2.jpg" alt="David Fernández Rodríguez presenting a slide on typical DevOps tools during his Try It! UPM talk">
                 </div>
               </div>
             </div>
@@ -669,46 +797,12 @@
           </div>
         </div>
       </section>
-
-      <!-- ============ BOOKS ============ -->
-      <section id="books">
-        <div class="content-wrap">
-          <div class="section-head">
-            <h2>Books</h2>
-            <div class="section-sub">Published on Amazon KDP</div>
-          </div>
-
-          <div class="books-grid">
-            <div class="book">
-              <div class="book-cover"><img src="https://m.media-amazon.com/images/I/31wjqxI4aWL._UY266.jpg" alt="Aprende Rust en un fin de semana" loading="lazy"></div>
-              <div class="book-title"><a href="https://www.amazon.es/dp/B0CW1JPPFG" target="_blank" rel="noopener">Aprende Rust en un fin de semana</a></div>
-            </div>
-            <div class="book">
-              <div class="book-cover"><img src="https://m.media-amazon.com/images/I/31z5QExs0RL._UY266.jpg" alt="Aprende Rust resolviendo problemas: 100 ejercicios resueltos" loading="lazy"></div>
-              <div class="book-title"><a href="https://www.amazon.es/dp/B0CYXJTYFW" target="_blank" rel="noopener">Aprende Rust resolviendo problemas: 100 ejercicios resueltos</a></div>
-            </div>
-            <div class="book">
-              <div class="book-cover"><img src="https://m.media-amazon.com/images/I/31+MZQQ0OfL._UY266.jpg" alt="Aprende Python resolviendo problemas: 180 ejercicios de programación con soluciones, de principiante a avanzado" loading="lazy"></div>
-              <div class="book-title"><a href="https://www.amazon.es/dp/B0CHBCXPYF" target="_blank" rel="noopener">Aprende Python resolviendo problemas: 180 ejercicios</a></div>
-            </div>
-            <div class="book">
-              <div class="book-cover"><img src="https://m.media-amazon.com/images/I/315zHA13eQL._UY266.jpg" alt="Aprende Java con 200 ejercicios resueltos" loading="lazy"></div>
-              <div class="book-title"><a href="https://www.amazon.es/dp/B0CVFXBNFR" target="_blank" rel="noopener">Aprende Java con 200 ejercicios resueltos</a></div>
-            </div>
-            <div class="book">
-              <div class="book-cover"><img src="https://m.media-amazon.com/images/I/315G93pdyUL._UY266.jpg" alt="Aprende C resolviendo problemas: 100 ejercicios resueltos" loading="lazy"></div>
-              <div class="book-title"><a href="https://www.amazon.es/dp/B0DF6DG3PD" target="_blank" rel="noopener">Aprende C resolviendo problemas: 100 ejercicios resueltos</a></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ WRITING ============ -->
-      <section id="writing">
+<section id="writing">
         <div class="content-wrap">
           <div class="section-head">
             <h2>Writing</h2>
-            <div class="section-sub">Published on <a href="https://medium.com/@dfernaro" target="_blank" rel="noopener">medium.com/@dfernaro</a></div>
+            <div class="section-sub">Published on <a href="https://medium.com/@dfernaro" target="_blank" rel="noopener">medium.com/@dfernaro</a>
+              <a href="https://github.com/dfernaro" target="_blank" rel="noopener">github.com/dfernaro</a></div>
           </div>
 
           <div class="pub"><a href="https://medium.com/@dfernaro/revealing-insights-a-comparative-study-of-varied-prompts-sql-database-utilisation-and-azure-18e51b8a5ede" target="_blank" rel="noopener">Revealing Insights: A Comparative Study of Varied Prompts, SQL Database Utilisation and Azure OpenAI</a><span class="kind">article</span></div>
@@ -718,9 +812,7 @@
           <div class="pub"><a href="https://medium.com/@dfernaro/unleash-your-websites-full-potential-the-ultimate-guide-to-deploying-your-static-site-on-s3-51470381a230" target="_blank" rel="noopener">Unleash Your Website's Full Potential: The Ultimate Guide to Deploying Your Static Site on S3</a><span class="kind">article</span></div>
         </div>
       </section>
-
-      <!-- ============ EDUCATION ============ -->
-      <section id="education">
+<section id="education">
         <div class="content-wrap">
           <div class="section-head"><h2>Education</h2></div>
 
@@ -730,28 +822,25 @@
           <div class="edu"><h3>Certificate of Higher Education, Development of Computer Applications</h3><div class="org">I.E.S Julio Verne · 2009 – 2012</div></div>
         </div>
       </section>
-
-      <!-- ============ WORK WITH ME ============ -->
-      <section id="work-with-me">
+<section id="work-with-me">
         <div class="content-wrap">
           <div class="section-head"><h2>Work with Me</h2></div>
 
           <div class="work-grid">
             <div class="work-card">
               <h3>Speaking</h3>
-              <p>Open to conference talks, meetups, panels and podcast conversations on cloud architecture, AWS and applied AI.</p>
+              <p>Open to conference talks, meetups, panels and podcast conversations on AWS architecture, partner development, open source, and the practical use of AI.</p>
               <a href="https://www.linkedin.com/in/dfernaro" target="_blank" rel="noopener">Get in touch on LinkedIn</a>
             </div>
             <div class="work-card">
               <h3>Mentoring</h3>
-              <p>Available for paid 1:1 mentoring — AWS certifications, engineering leadership, or getting started with applied AI.</p>
+              <p>Available for paid 1:1 mentoring — AWS certifications, cloud architecture, engineering leadership, and applied AI.</p>
               <a href="https://www.linkedin.com/in/dfernaro" target="_blank" rel="noopener">Message on LinkedIn to arrange a session</a>
             </div>
           </div>
         </div>
       </section>
-
-    </main>
+</main>
 
     <footer>
       <div class="content-wrap">
@@ -759,13 +848,15 @@
           <div>
             <h3>Contact</h3>
             <div class="links">
+              <a href="assets/david-fernandez-rodriguez-cv.pdf" target="_blank" rel="noopener" download>Download CV (PDF)</a>
               <a href="https://www.linkedin.com/in/dfernaro" target="_blank" rel="noopener">linkedin.com/in/dfernaro</a>
               <a href="https://medium.com/@dfernaro" target="_blank" rel="noopener">medium.com/@dfernaro</a>
+              <a href="https://github.com/dfernaro" target="_blank" rel="noopener">github.com/dfernaro</a>
             </div>
           </div>
           <div>
             <h3>Languages</h3>
-            <div class="langs">Spanish (native)<br>English (native / bilingual)<br>German (elementary)<br>French (elementary)</div>
+            <div class="langs">Spanish (native)<br>English (fluent)<br>German (elementary)<br>French (elementary)</div>
           </div>
         </div>
         <div class="copyright">© 2026 David Fernández Rodríguez — <a href="#main">Back to top</a></div>
@@ -777,61 +868,81 @@
 
 <script>
 (function(){
-  if (!('IntersectionObserver' in window)) return;
   var links = document.querySelectorAll('.sidebar nav a[href^="#"], .mobile-drawer nav a[href^="#"]');
-  var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
-  if (!sections.length || !links.length) return;
-
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if (entry.isIntersecting){
-        var id = entry.target.id;
+  var sections = document.querySelectorAll('main section[id]');
+  if ('IntersectionObserver' in window){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (!entry.isIntersecting) return;
         links.forEach(function(link){
-          var match = link.getAttribute('href') === '#' + id;
-          if (match) link.setAttribute('aria-current', 'true');
+          if (link.getAttribute('href') === '#' + entry.target.id) link.setAttribute('aria-current','true');
           else link.removeAttribute('aria-current');
         });
-      }
-    });
-  }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
-
-  sections.forEach(function(s){ observer.observe(s); });
-})();
-
-(function(){
+      });
+    },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+    sections.forEach(function(section){observer.observe(section);});
+  }
   var toggle = document.getElementById('menuToggle');
   var drawer = document.getElementById('mobileDrawer');
   var backdrop = document.getElementById('drawerBackdrop');
-  var closeBtn = document.getElementById('drawerClose');
-  if (!toggle || !drawer || !backdrop || !closeBtn) return;
-
+  var closeButton = document.getElementById('drawerClose');
   function openDrawer(){
+    drawer.inert = false;
+    drawer.setAttribute('aria-hidden','false');
     drawer.classList.add('open');
     backdrop.classList.add('open');
     document.body.classList.add('drawer-open');
-    toggle.setAttribute('aria-expanded', 'true');
-    var firstLink = drawer.querySelector('a');
-    if (firstLink) firstLink.focus();
+    toggle.setAttribute('aria-expanded','true');
+    closeButton.focus();
   }
   function closeDrawer(returnFocus){
+    if (returnFocus) toggle.focus();
+    else if (drawer.contains(document.activeElement)) document.activeElement.blur();
     drawer.classList.remove('open');
     backdrop.classList.remove('open');
     document.body.classList.remove('drawer-open');
-    toggle.setAttribute('aria-expanded', 'false');
-    if (returnFocus) toggle.focus();
+    toggle.setAttribute('aria-expanded','false');
+    drawer.setAttribute('aria-hidden','true');
+    drawer.inert = true;
   }
-
-  toggle.addEventListener('click', function(){
-    var isOpen = drawer.classList.contains('open');
-    if (isOpen) closeDrawer(true); else openDrawer();
+  toggle.addEventListener('click',function(){
+    if (drawer.classList.contains('open')) closeDrawer(true); else openDrawer();
   });
-  closeBtn.addEventListener('click', function(){ closeDrawer(true); });
-  backdrop.addEventListener('click', function(){ closeDrawer(false); });
-  drawer.addEventListener('click', function(e){
-    if (e.target.tagName === 'A') closeDrawer(false);
+  closeButton.addEventListener('click',function(){closeDrawer(true);});
+  backdrop.addEventListener('click',function(){closeDrawer(true);});
+  drawer.addEventListener('click',function(event){
+    var link = event.target.closest('a[href^="#"]');
+    if (!link) return;
+    closeDrawer(false);
+    var target = link.getAttribute('href') === '#' ? document.getElementById('main') : document.querySelector(link.getAttribute('href'));
+    if (target){target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}
   });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer(true);
+  document.addEventListener('keydown',function(event){
+    if (!drawer.classList.contains('open')) return;
+    if (event.key === 'Escape'){event.preventDefault();closeDrawer(true);}
+    if (event.key === 'Tab'){
+      var focusable = drawer.querySelectorAll('a[href],button');
+      var first = focusable[0], last = focusable[focusable.length-1];
+      if (event.shiftKey && document.activeElement === first){event.preventDefault();last.focus();}
+      else if (!event.shiftKey && document.activeElement === last){event.preventDefault();first.focus();}
+    }
+  });
+  window.addEventListener('resize',function(){
+    if (window.innerWidth > 900 && drawer.classList.contains('open')) closeDrawer(false);
+  });
+  document.querySelectorAll('.talk-photo img[data-src]').forEach(function(img){
+    img.addEventListener('load',function(){
+      img.parentElement.hidden = false;
+      img.closest('.talk-body').classList.add('has-photos');
+    });
+    img.addEventListener('error',function(){img.parentElement.hidden = true;});
+    img.src = img.dataset.src;
+  });
+  window.addEventListener('beforeprint',function(){
+    document.querySelectorAll('details').forEach(function(detail){detail.dataset.printWasOpen=String(detail.open);detail.open=true;});
+  });
+  window.addEventListener('afterprint',function(){
+    document.querySelectorAll('details[data-print-was-open]').forEach(function(detail){detail.open=detail.dataset.printWasOpen==='true';delete detail.dataset.printWasOpen;});
   });
 })();
 </script>
